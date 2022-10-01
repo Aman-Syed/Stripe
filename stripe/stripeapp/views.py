@@ -4,7 +4,11 @@ from django.contrib.auth import login
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm #add this
 from django.contrib.auth import login, authenticate #add this
-def login(request):
+from models import *
+def home(request):
+	p=Plan.objects.all()
+	print(p)
+def login_request(request):
 	if request.method == "POST":
 		form = AuthenticationForm(request, data=request.POST)
 		if form.is_valid():
